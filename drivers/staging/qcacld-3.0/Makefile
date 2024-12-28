@@ -15,6 +15,8 @@ M ?= $(shell pwd)
 KBUILD_OPTIONS := WLAN_ROOT=$(shell cd $(KERNEL_SRC); readlink -e $(M))
 KBUILD_OPTIONS += MODNAME?=wlan
 
+ccflags-y += -Wno-address-of-packed-member
+
 #By default build for CLD
 WLAN_SELECT := CONFIG_QCA_CLD_WLAN=m
 KBUILD_OPTIONS += CONFIG_QCA_WIFI_ISOC=0
